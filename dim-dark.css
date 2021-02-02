@@ -1,21 +1,14 @@
 @include-when-export url(https://fonts.loli.net/css?family=Inconsolata:400,700&subset=latin-ext);
 
 :root {
-  /*--bg-color: #222;*/
   --bg-color: #111;
-  /*--side-bar-bg-color: #5F5F5F;*/
   --side-bar-bg-color: #111;
-  /*--active-file-text-color: #222;*/
   --active-file-text-color: #111;
   --text-color: #ebebeb;
-  /*--window-border: 1px solid #606060;*/
   --window-border: 1px solid #111;
-  /*--active-file-bg-color: rgba(219, 219, 253, 0.4);*/
   --active-file-bg-color: rgba(252, 219, 241, 0.4);
-  /*--active-file-bg-color: #A73172;*/
   --active-file-text-color: white;
   --control-text-color: #ccc;
-  /*--rawblock-edit-panel-bd: #263238;*/
   --rawblock-edit-panel-bd: #111;
   --search-select-text-color: #eee;
   --search-select-bg-color: #E80C68;
@@ -29,7 +22,6 @@
 html, body {
   font-size: 16px;
   color: #ebebeb;
-  /*background: #222;*/
   background: #111;
   background: var(--bg-color);
   font-family: 'Inconsolata', monospace;
@@ -103,14 +95,14 @@ h1,
   font-size: 2rem;
 }
 h1:before {
-  content: "# ";
+  content: "* ";
 }
 h2,
 [mdlike='h2'] {
   font-size: 1.6rem;
 }
 h2:before {
-  content: "## ";
+  content: "** ";
 }
 h3,
 [mdlike='h3'] {
@@ -118,7 +110,7 @@ h3,
 }
 h3:before,
 h3.md-focus:before {
-  content: "### ";
+  content: "*** ";
 }
 h4,
 h5,
@@ -126,7 +118,7 @@ h6,
 [mdlike='h4'],
 [mdlike='h5'],
 [mdlike='h6'] {
-  color: #549ad8;
+  color: aquamarine;
 }
 h4,
 [mdlike='h4'] {
@@ -179,7 +171,6 @@ table {
   border: 1px solid #cbcbcb;
 }
 thead {
-  /*background-color: #263238;*/
   background-color: #111;
   color: #f5f5f5;
   text-align: left;
@@ -379,11 +370,13 @@ ol[cid] > li:before {
   text-decoration: line-through;
 }
 blockquote {
-  background-color: rgba(128, 128, 128, 0.05);
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  padding: 0 20px;
-  border-left: 8px solid #333;
+    /*background-color: rgba(128, 128, 128, 0.05);*/
+    /*border-top-right-radius: 5px;*/
+    border-bottom-right-radius: 5px;
+    padding: 8px 20px;
+    border-left: 4px solid #333;
+    font-size: larger;
+    font-style: italic;
 }
 hr {
   position: relative;
@@ -407,6 +400,10 @@ hr:after {
 /**
  * Code Fences
  */
+.CodeMirror ::selection {
+  background-color: #E80C68;
+  color: #fff;
+}
 .md-fences:not(.md-fences-with-lineon) .cm-s-inner {
   padding-left: 8px;
 }
@@ -416,7 +413,6 @@ hr:after {
   padding-bottom: 16px;
 }
 .CodeMirror.cm-s-inner .CodeMirror-gutters {
-  /*background: #263238;*/
   background: #222;
   color: #537f7e;
   border: none;
@@ -591,11 +587,17 @@ hr:after {
  * Inline Elements
  */
 code {
-  color: #caca16;
-  font-size: 0.9em;
+    color: fff;
+    font-size: inherit;
+    background-color: #5b508d;
+    padding: 2px;
+    border-radius: 3px;
+    margin: 2px;
+    font-weight: bold;
 }
 mark {
-  background: bisque;
+  background-color: aquamarine;
+  color: black;
 }
 strong {
   color: #ffffc5;
@@ -827,4 +829,52 @@ titlebar {
 
 .md-task-list-item>input {
   margin-top: calc(1rem - 12px);
+}
+
+sup:hover {
+    color: #333;
+    background-color: aquamarine;
+}
+
+/*footnote adaptable*/
+.md-def-footnote .md-def-name::before {
+     content: '['; 
+}
+
+.md-def-name::before {
+    font-weight: 400;
+    content: '[';
+    position: absolute;
+    left: 0;
+    color: aquamarine;
+}
+
+.md-def-name::after {
+    font-weight: 400;
+    content: ' ] :';
+    position: initial; 
+    right: 0;
+    color: aquamarine;
+}
+
+/*tooltip adapable*/
+.md-f-tooltip .code-tooltip-content {
+    text-align: left;
+}
+
+.md-hover-tip .code-tooltip-content {
+    border-radius: 4px;
+    opacity: .95;
+    margin-top: -2px;
+    line-height: 1.2em;
+    text-align: center;
+    background-color: aquamarine;
+    color: #222;
+}
+
+.allow-file-tree-scroll .file-node-title {
+    display: block;
+    white-space: normal; 
+    overflow-x: visible;
+    overflow-y: hidden;
 }

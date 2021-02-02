@@ -629,3 +629,33 @@ content {
 #typora-quick-open {
   color: #eee;
 }
+
+/*footnote adaptable*/
+.md-def-footnote .md-def-name::before {
+     content: '['; 
+}
+
+.md-def-name::before {
+    font-weight: 400;
+    content: '[';
+    position: absolute;
+    left: 0;
+    color: inherit;
+}
+
+.md-def-name::after {
+    font-weight: 400;
+    content: ' ] :';
+    position: initial; 
+    right: 0;
+    color: inherit;
+}
+
+.allow-file-tree-scroll .file-node-title {
+    display: block;
+    white-space: normal; 
+    overflow-x: visible;
+    overflow-y: hidden;
+}
+
+
